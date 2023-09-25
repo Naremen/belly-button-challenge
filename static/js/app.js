@@ -39,9 +39,9 @@ function buildChart(params) {
         console.log(result);
         // create the bar chart
          Plotly.newPlot('bar', [{
-             x: result.otu_ids.slice(0, 10),
-             y: result.sample_values.slice(0, 10),
-             text: result.otu_labels.slice(0, 10),
+             x: values.slice(0, 10).reverse(),
+             y: ids.slice(0, 10).map(id => `OTU ${id}`),
+             text: values.slice(0, 10).reverse(),
              type: "bar",
              labels: "otu_ids",
              orientation: "h"
@@ -50,9 +50,11 @@ function buildChart(params) {
             x: ids,
             y: values,
             text: labels,
+            mode: "markers",
             marker: {
                 size: values,
-                color: ids
+                color: ids,
+                colorscale: "Earth"
             }
         }])
      })
