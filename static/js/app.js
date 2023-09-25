@@ -24,9 +24,6 @@ function buildPannel(x) {
        //pannel.html("");   
     })
 
-
-    
-
 }
 function buildChart(params) {
     d3.json(url).then(function (data) {
